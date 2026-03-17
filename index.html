@@ -11,48 +11,75 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   color: #fff;
-  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center fixed;
+
+  /* FUNDO DESENHADO DO MAR */
+  background: url('https://cdn.pixabay.com/photo/2017/01/31/13/14/underwater-2026474_1280.png') no-repeat center center fixed;
   background-size: cover;
 }
 
 /* TÍTULO */
 h1 {
-  color: #e0b3ff;
+  color: #e6ccff;
   margin-top: 20px;
-  text-shadow: 0 0 10px #000;
+  text-shadow: 0 0 15px #000;
 }
 
-/* CARDS */
-.container { padding: 15px; }
-
-.card {
-  background: rgba(255,255,255,0.9);
-  color: #333;
-  border-radius: 15px;
+/* CONTAINER */
+.container {
   padding: 15px;
-  margin: 10px auto;
-  max-width: 350px;
+}
+
+/* CARD SOFISTICADO */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 15px auto;
+  max-width: 380px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* TEXTO INTERNO */
+.card p {
+  margin: 8px 0;
+}
+
+/* DESTAQUE */
+.titulo-info {
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffd6ff;
 }
 
 /* BOTÕES */
 a {
   display: inline-block;
-  padding: 10px 15px;
-  margin: 8px;
-  border-radius: 20px;
+  padding: 10px 18px;
+  border-radius: 25px;
   text-decoration: none;
   font-weight: bold;
-  color: #fff;
+  margin: 10px 5px;
+  font-size: 14px;
 }
 
-.whatsapp { background: #25D366; }
-.mapa { background: #7b5cff; }
+.whatsapp {
+  background: linear-gradient(45deg,#25D366,#1ebe5d);
+  color: white;
+}
+
+.mapa {
+  background: linear-gradient(45deg,#a855f7,#6b21a8);
+  color: white;
+}
 
 /* CONTADOR */
 #contador {
   font-size: 18px;
-  color: #7b5cff;
   font-weight: bold;
+  color: #fff;
 }
 
 /* BOLHAS */
@@ -61,7 +88,7 @@ a {
   bottom: -20px;
   width: 10px;
   height: 10px;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.6);
   border-radius: 50%;
   animation: subir linear infinite;
 }
@@ -70,7 +97,6 @@ a {
   0% { transform: translateY(0); }
   100% { transform: translateY(-120vh); }
 }
-
 </style>
 </head>
 
@@ -80,66 +106,10 @@ a {
 
 <div class="container">
 
-  <div class="card">
-    <p><b>Helena faz 6 anos! 🎉</b></p>
-    <p>📅 24/05/2026</p>
-    <p>⏰ 14h</p>
-    <p>📍 Av. Independência, 294<br>Jardim Sumaré</p>
-    <p>🎈 Top Festa Buffet</p>
+<!-- TEXTO PERSONALIZADO -->
+<div class="card" style="text-align:left; line-height:1.5;">
+  <p>Seja muito bem-vindo(a) ao cantinho especial da nossa pequena sereia Helena, que está prestes a completar 6 aninhos! 💜</p>
 
-    <a href="https://goo.gl/maps/Xk3bHkY7h6S2" target="_blank" class="mapa">
-      Ver localização
-    </a>
-  </div>
+  <p>Preparamos este espaço com muito carinho especialmente para a confirmação de presença, assim conseguimos organizar cada detalhe desse dia mágico com todo o cuidado que a nossa sereia merece. 🐚🌊</p>
 
-  <div class="card">
-    <p id="contador">Carregando...</p>
-  </div>
-
-  <div class="card">
-    <a href="https://wa.me/5516993813071?text=Confirmo%20presença%20na%20festa%20da%20Helena" 
-       target="_blank" class="whatsapp">
-       Confirmar presença
-    </a>
-  </div>
-
-</div>
-
-<!-- MÚSICA (Aqui no Mar) -->
-<div style="display:none;">
-<iframe width="0" height="0"
-src="https://www.youtube.com/embed/GC_mV1IpjWA?autoplay=1&loop=1&playlist=GC_mV1IpjWA">
-</iframe>
-</div>
-
-<script>
-// CONTADOR
-const data = new Date("May 24, 2026 14:00:00").getTime();
-const el = document.getElementById("contador");
-
-setInterval(()=>{
-  const agora = new Date().getTime();
-  const d = data - agora;
-
-  const dias = Math.floor(d/(1000*60*60*24));
-  const horas = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-  const min = Math.floor((d%(1000*60*60))/(1000*60));
-  const seg = Math.floor((d%(1000*60))/1000);
-
-  el.innerHTML = d>0
-    ? `Faltam ${dias}d ${horas}h ${min}m ${seg}s`
-    : "A festa começou! 🎉";
-},1000);
-
-// BOLHAS
-for(let i=0;i<20;i++){
-  let b = document.createElement("div");
-  b.className = "bolha";
-  b.style.left = Math.random()*100+"%";
-  b.style.animationDuration = (5+Math.random()*5)+"s";
-  document.body.appendChild(b);
-}
-</script>
-
-</body>
-</html>
+  <p>Aqui é só para nos avisar se
