@@ -1,70 +1,233 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aniversário da Helena</title><style>
+<title>Aniversário da Helena</title>
+<style>
+/* ---------- ESTILO GERAL ---------- */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(180deg, #9fe7ff, #ffffff);
   text-align: center;
   overflow-x: hidden;
+  height: 100vh;
+  color: #fff;
+  background: linear-gradient(to bottom, #3db6f5, #9fe7ff);
+  position: relative;
 }
 
-/* BOLHAS SUBINDO */
-.bolha {
+/* ---------- FUNDO SUBAQUÁTICO ---------- */
+.fundo-mar {
   position: fixed;
-  bottom: -50px;
-  width: 20px;
-  height: 20px;
-  background: rgba(255,255,255,0.4);
-  border-radius: 50%;
-  animation: subir 10s infinite ease-in;
-}
-
-@keyframes subir {
-  0% { transform: translateY(0); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-1000px); opacity: 0; }
-}
-
-h1 {
-  color: #7b5cff;
-  font-size: 28px;
-  margin-top: 20px;
-}
-
-.container {
-  padding: 20px;
-}
-
-/* FOTO LUXO */
-.foto {
-  margin: 20px auto;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 6px solid #e6dcff;
-  box-shadow: 0 0 25px rgba(123,92,255,0.6);
-}
-
-.foto img {
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background: url('https://i.imgur.com/oe4iK5R.jpg') repeat;
+  background-size: cover;
+  z-index: -5;
+  animation: moveFundo 60s linear infinite;
+}
+@keyframes moveFundo {
+  0% {background-position: 0 0;}
+  100% {background-position: 1000px 1000px;}
 }
 
-/* CARDS */
+/* ---------- PEIXES ANIMADOS ---------- */
+.peixe {
+  position: absolute;
+  width: 60px;
+  height: auto;
+  animation: nadar linear infinite;
+  z-index: -3;
+}
+@keyframes nadar {
+  0% {transform: translateX(-100px);}
+  100% {transform: translateX(110%);}
+}
+
+/* ---------- PARTICULAS BRILHANTES ---------- */
+.particula {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  animation: flutuar linear infinite;
+}
+@keyframes flutuar {
+  0% {transform: translateY(0) translateX(0); opacity: 0;}
+  50% {opacity: 1;}
+  100% {transform: translateY(-1000px) translateX(50px); opacity: 0;}
+}
+
+/* ---------- BOLHAS ---------- */
+.bolha {
+  position: absolute;
+  bottom: -50px;
+  width: 15px;
+  height: 15px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  animation: subir 15s infinite linear;
+}
+@keyframes subir {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-1200px) translateX(50px); opacity: 0; }
+}
+
+/* ---------- TITULO ---------- */
+h1 {
+  color: #ffb3ff;
+  font-size: 36px;
+  margin-top: 20px;
+  text-shadow: 0 0 15px #ffb3ff, 0 0 30px #7b5cff;
+}
+
+/* ---------- CONTAINER ---------- */
+.container {
+  padding: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+/* ---------- CARDS ---------- */
 .card {
-  background: rgba(255,255,255,0.95);
-  border-radius: 20px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 25px;
   padding: 20px;
   margin: 20px auto;
-  max-width: 400px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  max-width: 450px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+  color: #333;
 }
 
-/* INPUTS */
-input, select {
-  width
+/* ---------- CONTADOR ---------- */
+#contador {
+  font-size: 26px;
+  color: #7b5cff;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* ---------- BOTÕES ---------- */
+a.botao-whatsapp, a.botao-mapa {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 10px 0;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+a.botao-whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+a.botao-whatsapp:hover {
+  background-color: #1ebe5d;
+}
+a.botao-mapa {
+  background-color: #ff6ffb;
+  color: white;
+}
+a.botao-mapa:hover {
+  background-color: #d45edb;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 500px) {
+  .card { max-width: 90%; padding: 15px; }
+  h1 { font-size: 28px; }
+  #contador { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- FUNDO SUBAQUÁTICO -->
+<div class="fundo-mar"></div>
+
+<!-- PEIXES ANIMADOS -->
+<img class="peixe" src="https://i.imgur.com/jm0oCPL.png" style="top:20%; animation-duration: 25s;">
+<img class="peixe" src="https://i.imgur.com/jm0oCPL.png" style="top:50%; animation-duration: 35s; animation-delay: 5s;">
+<img class="peixe" src="https://i.imgur.com/jm0oCPL.png" style="top:70%; animation-duration: 30s; animation-delay: 10s;">
+
+<!-- PARTICULAS -->
+<div class="particula" style="left:5%; animation-duration:20s;"></div>
+<div class="particula" style="left:15%; animation-duration:25s; animation-delay:5s;"></div>
+<div class="particula" style="left:25%; animation-duration:30s; animation-delay:2s;"></div>
+<div class="particula" style="left:35%; animation-duration:22s;"></div>
+<div class="particula" style="left:45%; animation-duration:28s; animation-delay:3s;"></div>
+<div class="particula" style="left:55%; animation-duration:18s; animation-delay:7s;"></div>
+<div class="particula" style="left:65%; animation-duration:25s; animation-delay:4s;"></div>
+<div class="particula" style="left:75%; animation-duration:30s; animation-delay:6s;"></div>
+<div class="particula" style="left:85%; animation-duration:20s; animation-delay:1s;"></div>
+
+<h1>Aniversário da Helena 🎉</h1>
+
+<div class="container">
+  <div class="card">
+    <p>Data: 24/05/2026</p>
+    <p>Local: Avenida Independência, 294 - Jardim Sumaré, Ribeirão Preto</p>
+    <p>Buffet: Top Festa Buffet</p>
+    <a href="https://goo.gl/maps/Xk3bHkY7h6S2" target="_blank" class="botao-mapa">Ver localização no mapa</a>
+  </div>
+
+  <div class="card">
+    <p id="contador">Contagem regressiva: </p>
+  </div>
+
+  <div class="card">
+    <a href="https://wa.me/5516993813071?text=Oi,%20confirmo%20minha%20presença%20na%20festa%20da%20Helena!" class="botao-whatsapp" target="_blank">
+      Confirmar presença no WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- BOLHAS -->
+<div class="bolha" style="left:10%; width:15px; height:15px;"></div>
+<div class="bolha" style="left:30%; width:20px; height:20px;"></div>
+<div class="bolha" style="left:50%; width:18px; height:18px;"></div>
+<div class="bolha" style="left:70%; width:22px; height:22px;"></div>
+<div class="bolha" style="left:85%; width:16px; height:16px;"></div>
+
+<!-- MÚSICA DE FUNDO (YouTube) -->
+<div style="display:none;">
+  <iframe 
+    width="0" height="0"
+    src="https://www.youtube.com/embed/jcqf0bWv4HI?autoplay=1&loop=1&playlist=jcqf0bWv4HI"
+    title="Música Aqui no Mar - Pequena Sereia"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<script>
+// CONTADOR REGRESSIVO
+const dataFesta = new Date("May 24, 2026 18:00:00").getTime();
+const contador = document.getElementById("contador");
+
+setInterval(function(){
+  const agora = new Date().getTime();
+  const distancia = dataFesta - agora;
+
+  const dias = Math.floor(distancia / (1000*60*60*24));
+  const horas = Math.floor((distancia % (1000*60*60*24)) / (1000*60*60));
+  const minutos = Math.floor((distancia % (1000*60*60)) / (1000*60));
+  const segundos = Math.floor((distancia % (1000*60)) / 1000);
+
+  contador.innerHTML = `Faltam ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+
+  if(distancia < 0){
+    contador.innerHTML = "A festa começou! 🎉";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
