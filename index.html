@@ -4,127 +4,146 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aniversário da Helena</title>
+
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   text-align: center;
-  overflow-x: hidden;
   color: #fff;
-  background: url('https://i.imgur.com/8V9fVYF.jpg') no-repeat center center fixed;
+  overflow-x: hidden;
+
+  background:
+  linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...(base64 reduzido)");
   background-size: cover;
-  height: 100vh;
 }
 
 /* TITULO */
 h1 {
-  color: #ffb3ff;
-  font-size: 36px;
   margin-top: 20px;
-  text-shadow: 0 0 15px #ffb3ff, 0 0 30px #7b5cff;
+  color: #ffb3ff;
+  text-shadow: 0 0 15px #ffb3ff, 0 0 25px #00eaff;
 }
 
-/* CONTAINER E CARDS */
-.container {padding: 20px;}
+/* IMAGENS */
+.topo {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.topo img {
+  width: 100px;
+  border-radius: 15px;
+}
+
+/* CARDS */
 .card {
   background: rgba(255,255,255,0.9);
-  border-radius: 20px;
-  padding: 20px;
-  margin: 15px auto;
-  max-width: 400px;
   color: #333;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-/* CONTADOR */
-#contador {
-  font-size: 22px;
-  color: #7b5cff;
-  font-weight: bold;
-  margin: 10px 0;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 15px;
 }
 
 /* BOTÕES */
 a {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 25px;
+  padding: 10px;
+  border-radius: 20px;
   text-decoration: none;
+  display: inline-block;
+}
+
+.whatsapp {background:#25D366;color:white;}
+.mapa {background:#00c3ff;color:white;}
+
+/* CONTADOR */
+#contador {
   font-weight: bold;
-  margin: 10px 5px;
-  font-size: 14px;
+  color: #0077ff;
 }
-a.whatsapp {background: #25D366; color: white;}
-a.whatsapp:hover {background: #1ebe5d;}
-a.mapa {background: #ff6ffb; color: white;}
-a.mapa:hover {background: #d45edb;}
 
-/* BOLHAS ESTÁTICAS */
+/* BOLHAS */
 .bolha {
-  position: absolute;
-  width: 15px; height: 15px;
-  background: rgba(255,255,255,0.6);
-  border-radius: 50%;
+  position:absolute;
+  width:8px;height:8px;
+  background:white;
+  border-radius:50%;
+  opacity:0.6;
+  animation: subir linear infinite;
 }
-.b1 {top:30%; left:10%;}
-.b2 {top:50%; left:30%;}
-.b3 {top:40%; left:50%;}
-.b4 {top:60%; left:70%;}
-.b5 {top:35%; left:85%;}
 
-@media(max-width:500px){
-  .card{max-width:90%; padding:15px;}
-  h1{font-size:28px;}
-  #contador{font-size:18px;}
+@keyframes subir {
+  0%{transform:translateY(100vh);}
+  100%{transform:translateY(-10vh);}
 }
 </style>
 </head>
+
 <body>
 
-<h1>Aniversário da Helena 🎉</h1>
+<h1>🧜‍♀️ Aniversário da Helena 🌊</h1>
 
-<div class="container">
-  <div class="card">
-    <p>Data: 24/05/2026</p>
-    <p>Local: Avenida Independência, 294 - Jardim Sumaré, Ribeirão Preto</p>
-    <p>Buffet: Top Festa Buffet</p>
-    <a href="https://goo.gl/maps/Xk3bHkY7h6S2" target="_blank" class="mapa">Ver localização</a>
-  </div>
-
-  <div class="card">
-    <p id="contador">Contagem regressiva:</p>
-  </div>
-
-  <div class="card">
-    <a href="https://wa.me/5516993813071?text=Oi,%20confirmo%20minha%20presença%20na%20festa%20da%20Helena!" target="_blank" class="whatsapp">Confirmar presença</a>
-  </div>
+<div class="topo">
+  <img src="data:image/png;base64,iVBORw0KGgoAAA...(Ariel leve)">
+  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRg...(Helena leve)">
 </div>
 
-<!-- BOLHAS ESTÁTICAS -->
-<div class="bolha b1"></div>
-<div class="bolha b2"></div>
-<div class="bolha b3"></div>
-<div class="bolha b4"></div>
-<div class="bolha b5"></div>
-
-<!-- MÚSICA EM LOOP -->
-<div style="display:none;">
-<iframe width="0" height="0" src="https://www.youtube.com/embed/jcqf0bWv4HI?autoplay=1&loop=1&playlist=jcqf0bWv4HI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div class="card">
+<p><strong>Você está convidado para um dia mágico! 💖</strong></p>
+<p>📅 24/05/2026 às 18h</p>
+<p>📍 Av. Independência, 294</p>
+<p>🎈 Top Festa Buffet</p>
+<a href="https://goo.gl/maps/Xk3bHkY7h6S2" class="mapa">Ver localização</a>
 </div>
+
+<div class="card">
+<p id="contador"></p>
+</div>
+
+<div class="card">
+<a href="https://wa.me/5516993813071?text=Confirmo presença" class="whatsapp">
+Confirmar presença
+</a>
+</div>
+
+<div class="card">
+✨ Venha viver esse momento mágico no fundo do mar! 🐠💖
+</div>
+
+<!-- MÚSICA -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/GC_mV1IpjWA?autoplay=1&mute=1&loop=1&playlist=GC_mV1IpjWA"
+allow="autoplay">
+</iframe>
 
 <script>
-// CONTADOR REGRESSIVO
+// bolhas
+for(let i=0;i<25;i++){
+ let b=document.createElement("div");
+ b.className="bolha";
+ b.style.left=Math.random()*100+"%";
+ b.style.animationDuration=(3+Math.random()*5)+"s";
+ document.body.appendChild(b);
+}
+
+// contador
 const dataFesta = new Date("May 24, 2026 18:00:00").getTime();
 const contador = document.getElementById("contador");
 
 setInterval(()=>{
   const agora = new Date().getTime();
-  const distancia = dataFesta - agora;
-  const dias = Math.floor(distancia/(1000*60*60*24));
-  const horas = Math.floor((distancia%(1000*60*60*24))/(1000*60*60));
-  const minutos = Math.floor((distancia%(1000*60*60))/(1000*60));
-  const segundos = Math.floor((distancia%(1000*60))/1000);
-  contador.innerHTML = distancia>0 ? `Faltam ${dias}d ${horas}h ${minutos}m ${segundos}s` : "A festa começou! 🎉";
+  const d = dataFesta - agora;
+
+  const dias = Math.floor(d/(1000*60*60*24));
+  const horas = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+  const minutos = Math.floor((d%(1000*60*60))/(1000*60));
+  const segundos = Math.floor((d%(1000*60))/1000);
+
+  contador.innerHTML = d>0 
+  ? `⏳ ${dias}d ${horas}h ${minutos}m ${segundos}s`
+  : "🎉 A festa começou!";
 },1000);
 </script>
 
