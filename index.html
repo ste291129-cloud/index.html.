@@ -10,25 +10,20 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   overflow-x: hidden;
-  background: linear-gradient(to bottom, #3db6f5, #9fe7ff);
+  height: 100vh;
+  background: #3db6f5;
   color: #fff;
   position: relative;
-  height: 100vh;
 }
 
-/* FUNDO */
+/* FUNDO SUBAQUÁTICO */
 .fundo-mar {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: url('https://i.imgur.com/oe4iK5R.jpg') repeat;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: url('https://i.imgur.com/oe4iK5R.jpg') no-repeat center center;
   background-size: cover;
-  z-index: -5;
-  animation: moveFundo 60s linear infinite;
-}
-@keyframes moveFundo {
-  0%{background-position:0 0;} 
-  100%{background-position:1000px 1000px;}
+  z-index: -1;
 }
 
 /* PEIXES */
@@ -36,73 +31,65 @@ body {
   position: absolute;
   width: 60px;
   height: auto;
-  z-index: -4;
   animation: nadar linear infinite;
 }
 @keyframes nadar {
   0% {transform: translateX(-100px);}
-  100% {transform: translateX(110%);}
+  100% {transform: translateX(110vw);}
 }
 
 /* BOLHAS */
 .bolha {
   position: absolute;
-  bottom: -40px;
-  width: 15px; height: 15px;
+  bottom:-40px;
+  width:15px; height:15px;
   background: rgba(255,255,255,0.6);
   border-radius: 50%;
   animation: subir 12s infinite linear;
-  z-index: -3;
 }
 @keyframes subir {
-  0%{transform:translateY(0); opacity:0;}
-  50%{opacity:1;}
-  100%{transform:translateY(-800px); opacity:0;}
+  0% { transform: translateY(0); opacity: 0;}
+  50% { opacity: 1;}
+  100% { transform: translateY(-800px); opacity: 0;}
 }
 
 /* TITULO */
 h1 {
-  color:#ffb3ff; font-size:36px;
+  color:#ffb3ff;
+  font-size:36px;
   margin-top:20px;
-  text-shadow: 0 0 15px #ffb3ff,0 0 30px #7b5cff;
+  text-shadow: 0 0 15px #ffb3ff, 0 0 30px #7b5cff;
 }
 
-/* CONTAINER E CARDS */
-.container {padding:20px; position: relative; z-index: 1;}
+/* CARDS */
+.container {padding:20px;}
 .card {
   background: rgba(255,255,255,0.9);
   border-radius: 20px;
   padding: 20px;
   margin: 15px auto;
   max-width: 400px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
   color: #333;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 /* CONTADOR */
 #contador {font-size:22px; color:#7b5cff; font-weight:bold; margin:10px 0;}
 
 /* BOTÕES */
-a.botao-whatsapp, a.botao-mapa {
+a {
   display:inline-block;
   padding:10px 18px;
   border-radius:25px;
   text-decoration:none;
   font-weight:bold;
-  margin:10px 0;
+  margin:10px 5px;
   font-size:14px;
-  transition:0.3s;
 }
-a.botao-whatsapp{background:#25D366;color:white;}
-a.botao-whatsapp:hover{background:#1ebe5d;}
-a.botao-mapa{background:#ff6ffb;color:white;}
-a.botao-mapa:hover{background:#d45edb;}
-
-@media(max-width:500px){
-  .card{max-width:90%; padding:15px;}
-  h1{font-size:28px;}
-  #contador{font-size:18px;}
-}
+a.whatsapp {background:#25D366;color:white;}
+a.whatsapp:hover{background:#1ebe5d;}
+a.mapa {background:#ff6ffb;color:white;}
+a.mapa:hover{background:#d45edb;}
 </style>
 </head>
 <body>
@@ -120,15 +107,15 @@ a.botao-mapa:hover{background:#d45edb;}
     <p>Data: 24/05/2026</p>
     <p>Local: Avenida Independência, 294 - Jardim Sumaré, Ribeirão Preto</p>
     <p>Buffet: Top Festa Buffet</p>
-    <a href="https://goo.gl/maps/Xk3bHkY7h6S2" target="_blank" class="botao-mapa">Ver localização</a>
+    <a href="https://goo.gl/maps/Xk3bHkY7h6S2" target="_blank" class="mapa">Ver localização</a>
   </div>
 
   <div class="card">
-    <p id="contador">Contagem regressiva: </p>
+    <p id="contador">Contagem regressiva:</p>
   </div>
 
   <div class="card">
-    <a href="https://wa.me/5516993813071?text=Oi,%20confirmo%20minha%20presença%20na%20festa%20da%20Helena!" target="_blank" class="botao-whatsapp">Confirmar presença</a>
+    <a href="https://wa.me/5516993813071?text=Oi,%20confirmo%20minha%20presença%20na%20festa%20da%20Helena!" target="_blank" class="whatsapp">Confirmar presença</a>
   </div>
 </div>
 
