@@ -3,117 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Fonte bonita estilo convite -->
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-
 <title>Aniversário da Helena</title>
 
+<!-- Fontes Disney / convite -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
+/* Fundo do mar em estilo desenho */
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
-  text-align: center;
-  color: #fff;
   overflow-x: hidden;
-  background: linear-gradient(#4b0082, #006d6d);
+  background: linear-gradient(to bottom, #6dd5ed, #2193b0); /* Azul + verde */
+  position: relative;
+  min-height: 100vh;
 }
 
-/* Título */
+/* Título principal */
 h1 {
   font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-size: 38px;
   margin-top: 20px;
   color: #f3ccff;
-  font-size: 36px;
+  text-shadow: 2px 2px 8px #6d5cff;
 }
 
-/* Cards */
-.card {
-  background: rgba(0,0,0,0.6);
-  border-radius: 20px;
-  padding: 20px;
-  margin: 15px auto;
-  max-width: 360px;
+/* Conchas do mar para os textos */
+.concha {
+  background: rgba(255, 250, 240, 0.8);
+  border-radius: 50% 50% 20% 20%;
+  max-width: 380px;
+  margin: 20px auto;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  color: #333;
+  font-family: 'Great Vibes', cursive;
+  font-size: 18px;
+  line-height: 1.5;
   position: relative;
-  z-index: 2;
 }
 
-/* Botões */
+/* Pequeno detalhe de concha (triângulo embaixo) */
+.concha::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 20px;
+  border-style: solid;
+  border-color: rgba(255, 250, 240, 0.8) transparent transparent transparent;
+}
+
+/* Botões estilo FestaLab */
 a, button {
   display: inline-block;
-  padding: 12px 18px;
+  padding: 12px 20px;
   margin: 8px;
   border-radius: 25px;
-  text-decoration: none;
   font-weight: bold;
-  border:none;
+  border: none;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .whatsapp { background:#25D366; color:#fff; }
 .mapa { background:#7b5cff; color:#fff; }
 
-/* Contador */
 #contador {
   font-size: 18px;
   font-weight: bold;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
-/* Bolhas do mar */
-.bolha {
-  position: fixed;
-  bottom: -20px;
-  width: 8px;
-  height: 8px;
-  background: white;
-  border-radius: 50%;
-  opacity:0.7;
-  animation: subir linear infinite;
-}
-
-@keyframes subir {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-120vh); }
-}
-
-/* Sereias animadas */
-.sereia {
-  position: fixed;
-  width: 180px;
-  z-index:1;
-}
-
-.s1 { animation: nadar1 20s linear infinite; }
-.s2 { animation: nadar2 25s linear infinite; top:60%; }
-
-@keyframes nadar1 {
-  0% { transform: translateX(-250px) translateY(200px); }
-  100% { transform: translateX(120vw) translateY(250px); }
-}
-
-@keyframes nadar2 {
-  0% { transform: translateX(-250px) translateY(50px); }
-  100% { transform: translateX(120vw) translateY(0); }
-}
-
-/* Peixes animados */
-.peixe {
-  position: fixed;
-  font-size: 24px;
-  animation: peixe 15s linear infinite;
-}
-
-@keyframes peixe {
-  0% { transform: translateX(-50px); }
-  100% { transform: translateX(120vw); }
-}
-
-/* Estrelas do mar */
-.estrela {
-  position: fixed;
-  bottom: 0;
-  font-size: 28px;
+/* Container para animacoes futuramente */
+#animacoes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Para que botões sejam clicáveis */
+  overflow: hidden;
+  z-index: 1;
 }
 </style>
 </head>
@@ -121,65 +94,51 @@ a, button {
 
 <h1>🧜‍♀️ Aniversário da Helena 💖</h1>
 
-<div class="card" style="text-align:left;">
-<p>Seja muito bem-vindo(a) ao cantinho especial da nossa pequena sereia Helena, que está prestes a completar 6 aninhos! 💜</p>
-
-<p>Preparamos este espaço com muito carinho especialmente para a confirmação de presença, assim conseguimos organizar cada detalhe desse dia mágico com todo o cuidado que a nossa sereia merece. 🐚🌊</p>
-
-<p>Aqui é só para nos avisar se você poderá estar com a gente, tá bem? Sua presença já é o maior presente que a Helena poderia receber! 💫</p>
-
-<p><b>Com carinho,<br>Família da sereia Helena 💕</b></p>
+<!-- Concha com mensagem de boas-vindas -->
+<div class="concha">
+Seja muito bem-vindo(a) ao cantinho especial da nossa pequena sereia Helena, que está prestes a completar 6 aninhos! 💜<br><br>
+Preparamos este espaço com muito carinho especialmente para a confirmação de presença, assim conseguimos organizar cada detalhe desse dia mágico com todo o cuidado que a nossa sereia merece. 🐚🌊<br><br>
+Aqui é só para nos avisar se você poderá estar com a gente, tá bem? Sua presença já é o maior presente que a Helena poderia receber! 💫<br><br>
+Com carinho,<br>
+Família da sereia Helena 💕
 </div>
 
-<div class="card">
-<p><b>🎉 Helena faz 6 anos!</b></p>
-<p>📅 24/05/2026</p>
-<p>⏰ 14h</p>
-<p>📍 Av. Independência, 294<br>Jardim Sumaré</p>
-<p>🎈 Top Festa Buffet</p>
+<!-- Concha com informações da festa -->
+<div class="concha">
+<b>🎉 Helena faz 6 anos!</b><br>
+📅 24/05/2026 às 14h<br>
+📍 Avenida Independência, 294 - Jardim Sumaré<br>
+🎈 Top Festa Buffet
+</div>
 
+<!-- Contador regressivo dentro da concha -->
+<div class="concha" id="contador">Contagem regressiva:</div>
+
+<!-- Local onde serão adicionadas sereias, peixes e bolhas -->
+<div id="animacoes"></div><!-- Botões interativos -->
+<div class="concha" style="text-align:center;">
+<a href="https://wa.me/5516993813071?text=Oi,%20confirmo%20minha%20presença%20na%20festa%20da%20Helena!" target="_blank" class="whatsapp">Confirmar presença</a>
 <a href="https://goo.gl/maps/Xk3bHkY7h6S2" target="_blank" class="mapa">Ver localização</a>
 </div>
 
-<div class="card">
-<p id="contador"></p>
-</div><!-- Botão WhatsApp -->
-<div class="card">
-<a href="https://wa.me/5516993813071?text=Oi,%20confirmo%20minha%20presença%20na%20festa%20da%20Helena!"
-target="_blank" class="whatsapp">
-Confirmar presença
-</a>
-</div>
-
 <!-- Música de fundo -->
-<div class="card">
-<p>🎵 Toque para ouvir a música</p>
-<button onclick="document.getElementById('musica').play()" style="background:#7b5cff;color:#fff;">
-Tocar música
-</button>
+<div class="concha" style="text-align:center;">
+<p>🎵 Clique para ouvir a música:</p>
+<button onclick="document.getElementById('musica').play()">Tocar música</button>
 <audio id="musica" loop>
   <source src="https://cdn.pixabay.com/download/audio/2023/03/28/audio_5f4c0a9c4c.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
 </audio>
 </div>
 
-<!-- Sereias animadas (SVG simples, cabeças inclusas) -->
-<svg class="sereia s1" viewBox="0 0 200 200">
-  <circle cx="60" cy="60" r="20" fill="#ffd1a9"/>
-  <ellipse cx="60" cy="40" rx="30" ry="20" fill="#ff6a00"/>
-  <path d="M60 80 Q80 120 120 110 Q150 100 170 130 Q140 160 90 150 Q60 140 60 110Z" fill="#7b5cff"/>
-  <path d="M170 130 Q200 110 210 140 Q190 170 150 160Z" fill="#00e0b8"/>
-</svg>
-
-<svg class="sereia s2" viewBox="0 0 200 200">
-  <circle cx="60" cy="60" r="20" fill="#ffd1a9"/>
-  <ellipse cx="60" cy="40" rx="30" ry="20" fill="#ff6a00"/>
-  <path d="M60 80 Q80 120 120 110 Q150 100 170 130 Q140 160 90 150 Q60 140 60 110Z" fill="#7b5cff"/>
-  <path d="M170 130 Q200 110 210 140 Q190 170 150 160Z" fill="#00e0b8"/>
-</svg>
+<!-- Sereias animadas (GIF leves ou SVG animado simplificado) -->
+<img src="https://i.imgur.com/0hG7y3k.gif" class="sereia" style="top:30%; left:0; width:180px; animation: nadar1 20s linear infinite;">
+<img src="https://i.imgur.com/0hG7y3k.gif" class="sereia" style="top:60%; left:-200px; width:200px; animation: nadar2 25s linear infinite;">
 
 <!-- Peixes animados -->
-<div class="peixe" style="top:30%;">🐟</div>
-<div class="peixe" style="top:50%; animation-duration:20s;">🐠</div>
+<div class="peixe" style="top:25%;">🐟</div>
+<div class="peixe" style="top:45%; animation-duration:18s;">🐠</div>
+<div class="peixe" style="top:70%; animation-duration:22s;">🐟</div>
 
 <!-- Estrelas do mar -->
 <div class="estrela" style="left:20%;">⭐</div>
@@ -187,20 +146,20 @@ Tocar música
 
 <script>
 // Contador regressivo
-const data = new Date("May 24, 2026 14:00:00").getTime();
-const el = document.getElementById("contador");
+const dataFesta = new Date("May 24, 2026 14:00:00").getTime();
+const contador = document.getElementById("contador");
 
 setInterval(()=>{
   const agora = new Date().getTime();
-  const d = data - agora;
+  const distancia = dataFesta - agora;
 
-  const dias = Math.floor(d/(1000*60*60*24));
-  const horas = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-  const min = Math.floor((d%(1000*60*60))/(1000*60));
-  const seg = Math.floor((d%(1000*60))/1000);
+  const dias = Math.floor(distancia/(1000*60*60*24));
+  const horas = Math.floor((distancia%(1000*60*60*24))/(1000*60*60));
+  const minutos = Math.floor((distancia%(1000*60*60))/(1000*60));
+  const segundos = Math.floor((distancia%(1000*60))/1000);
 
-  el.innerHTML = d>0
-    ? `Faltam ${dias}d ${horas}h ${min}m ${seg}s`
+  contador.innerHTML = distancia>0 
+    ? `Faltam ${dias}d ${horas}h ${minutos}m ${segundos}s`
     : "A festa começou! 🎉";
 },1000);
 
@@ -213,6 +172,33 @@ for(let i=0;i<25;i++){
   document.body.appendChild(b);
 }
 </script>
+
+<!-- Animações CSS para sereias e peixes -->
+<style>
+/* Sereias nadando horizontal */
+@keyframes nadar1 {
+  0% { transform: translateX(-200px) translateY(0); }
+  100% { transform: translateX(120vw) translateY(0); }
+}
+@keyframes nadar2 {
+  0% { transform: translateX(-250px) translateY(0); }
+  100% { transform: translateX(120vw) translateY(0); }
+}
+
+/* Peixes animados horizontal */
+.peixe {
+  position: fixed;
+  font-size: 24px;
+  animation: nadarPeixe linear infinite;
+}
+
+@keyframes nadarPeixe {
+  0% { transform: translateX(-50px); }
+  100% { transform: translateX(120vw); }
+}
+
+/* Bolhas do mar já definidas na parte 1 */
+</style>
 
 </body>
 </html>
